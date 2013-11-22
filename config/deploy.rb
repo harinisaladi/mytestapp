@@ -19,6 +19,7 @@ role :db, location, :primary => true
 
 set :ssh_options, { :forward_agent => true }
 ssh_options[:keys] = %w(~/.ec2/mytest.pem ~/.ssh/github_rsa.pub)
+after "deploy", "deploy:migrate"
 
 namespace :deploy do
 	task :start do ; end
