@@ -1,4 +1,5 @@
 require 'bundler/capistrano'
+default_run_options[:pty] = true
 
 set :user, "ec2-user"
 set :use_sudo, false
