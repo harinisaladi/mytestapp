@@ -1,3 +1,8 @@
+require "rvm/capistrano"
+
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+set :rvm_ruby_sting, 'ruby-2.0.0@mytestapp'
+set :rvm_bin_path, '/usr/local/rvm/bin'
 set :application, "mytestapp"
  
 set :scm, :git
