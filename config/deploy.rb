@@ -1,7 +1,4 @@
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require "rvm/capistrano"
-set :rvm_ruby_string, "ruby-2.0.0@global"
-set :rvm_type, :user
+require 'bundler/capistrano'
 
 set :user, "ec2-user"
 set :use_sudo, false
