@@ -1,7 +1,8 @@
 require 'bundler/capistrano'
+
 default_run_options[:pty] = true
 
-set :rvm_ruby_string, "ruby-2.0.0@default"
+set :rvm_ruby_string, :local
 set :user, "ec2-user"
 set :use_sudo, false
 set :repository, "git@github.com:harinisaladi/mytestapp.git"
@@ -16,3 +17,5 @@ role :db, location, :primary => true
 
 ssh_options[:forward_agent] = true 
 ssh_options[:keys] = %w(~/.ec2/mytestapp.pem ~/.ssh/github_rsa.pub)
+
+before 'deploy:setup', 'rvm:use ruby'
