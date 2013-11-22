@@ -30,6 +30,6 @@ namespace :deploy do
     end
 end
 
-after 'deploy:update_code', 'deploy:migrate'
 set :keep_releases, 5
+after 'deploy:update_code', 'deploy:migrate'
 after "deploy:restart", "deploy:cleanup" 
