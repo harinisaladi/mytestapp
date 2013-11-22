@@ -1,4 +1,6 @@
 
+require "bundler/capistrano" 
+
 set :application, "mytestapp"
 set :repository, "git@github.com:harinisaladi/mytestapp.git"
 set :scm, :git
@@ -19,3 +21,15 @@ role :db, location, :primary => true
 ssh_options[:forward_agent] = true 
 ssh_options[:keys] = %w(~/.ec2/mytestapp.pem ~/.ssh/github_rsa.pub)
 
+
+namespace :deploy do
+	task :start do ; end
+    task :stop do ; end
+    task :restart, :roles => :app, :except => { :no_release => true } do     
+    	run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+    end
+end
+
+after 'deploy:update_code', 'deploy:migrate'
+set :keep_releases, 5
+after "deploy:restart", "deploy:cleanup" 
