@@ -1,3 +1,4 @@
+require 'rvm-capistrano'
 require 'bundler/capistrano'
 
 default_run_options[:pty] = true
@@ -10,6 +11,7 @@ set :scm, :git
 set :deploy_to, "/var/www/apps/#{application}"
 set :deploy_via, :remote_cache
 
+set :rvm_ruby_string, :local
 set :user, "ec2-user"
 set :branch, "master"
 set :location, "ec2-54-193-11-158.us-west-1.compute.amazonaws.com"
