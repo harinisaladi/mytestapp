@@ -11,7 +11,8 @@ set :scm, :git
 set :deploy_to, "/var/www/apps/#{application}"
 set :deploy_via, :remote_cache
 
-set :rvm_ruby_string, :local
+set :rvm_ruby_string, "ruby-2.0.0@mytestapp"
+set :rvm_type, :user
 set :user, "ec2-user"
 set :branch, "master"
 set :location, "ec2-54-193-11-158.us-west-1.compute.amazonaws.com"
