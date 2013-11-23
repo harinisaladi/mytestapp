@@ -1,5 +1,5 @@
 require "rvm/capistrano"
-require 'bundler/capistrano'
+#require 'bundler/capistrano'
 
 default_run_options[:pty] = true
 set :application, "mytestapp"
@@ -24,7 +24,7 @@ set :migrate_target, :latest
 
 set :ssh_options, { :forward_agent => true }
 ssh_options[:keys] = %w(~/.ec2/mytest.pem ~/.ssh/github_rsa.pub)
-after "deploy:update_code", "deploy:migrate"
+#after "deploy:update_code", "deploy:migrate"
 
 namespace :deploy do
 	task :start do ; end
