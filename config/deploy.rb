@@ -6,7 +6,7 @@ set :application, "mytestapp"
 set :scm, :git
 set :repository, "git@github.com:harinisaladi/mytestapp.git"
 set :scm_passphrase, ""
- 
+set :rvm_ruby_string, 'ruby-2.0.0-p247@default' 
 set :user, "ec2-user"
 set :deploy_to, "/var/www/apps/mytestapp"
 set :deploy_via, :remote_cache
