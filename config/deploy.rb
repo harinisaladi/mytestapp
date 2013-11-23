@@ -1,5 +1,5 @@
 require "rvm/capistrano"
-#require 'bundler/capistrano'
+require 'bundler/capistrano'
 
 default_run_options[:pty] = true
 set :application, "mytestapp"
